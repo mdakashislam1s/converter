@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omni Converter by Md. Akash</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <div class="logo">
+                    <i class="fas fa-exchange-alt"></i>
+                </div>
+                <div class="title-section">
+                    <h1 class="main-title">Omni Converter</h1>
+                    <p class="byline">by <span class="rgb-text">Md. Akash</span></p>
+                    <p class="tagline">Fast, accurate conversions for everyday use. Convert between units instantly!</p>
+                </div>
+            </div>
+            
+            <div class="theme-toggle-container">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-sun light-icon"></i>
+                    <span>Light</span>
+                </button>
+            </div>
+        </header>
+
+        <div class="converter-tabs" id="categoryTabs">
+            <button class="tab-btn active" data-category="length">
+                <i class="fas fa-ruler-combined"></i> Length
+            </button>
+            <button class="tab-btn" data-category="weight">
+                <i class="fas fa-weight-hanging"></i> Weight
+            </button>
+            <button class="tab-btn" data-category="temperature">
+                <i class="fas fa-thermometer-half"></i> Temperature
+            </button>
+            <button class="tab-btn" data-category="currency">
+                <i class="fas fa-money-bill-wave"></i> Currency
+            </button>
+            <button class="tab-btn" data-category="volume">
+                <i class="fas fa-wine-bottle"></i> Volume
+            </button>
+            <button class="tab-btn" data-category="digital">
+                <i class="fas fa-hdd"></i> Digital Storage
+            </button>
+        </div>
+
+        <div class="converter-container">
+            <div class="converter-box">
+                <div class="converter-header">
+                    <div class="converter-title">
+                        <i class="fas fa-arrow-down"></i>
+                        <span>Convert From</span>
+                    </div>
+                    <span class="converter-type" id="fromCategory">Length</span>
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label">Value</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="fromValue" class="input-field" placeholder="Enter value" value="1" step="any">
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label">Unit</label>
+                    <div class="input-wrapper">
+                        <select id="fromUnit" class="unit-selector"></select>
+                    </div>
+                </div>
+            </div>
+
+            <button class="swap-btn" id="swapBtn">
+                <i class="fas fa-sync-alt"></i>
+            </button>
+
+            <div class="converter-box">
+                <div class="converter-header">
+                    <div class="converter-title">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>Convert To</span>
+                    </div>
+                    <span class="converter-type" id="toCategory">Length</span>
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label">Value</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="toValue" class="input-field" placeholder="Result" readonly>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label">Unit</label>
+                    <div class="input-wrapper">
+                        <select id="toUnit" class="unit-selector"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="result-box" id="resultBox">
+            <div class="result-label">CONVERSION RESULT</div>
+            <div class="result-value" id="resultValue">0</div>
+            <div class="result-formula" id="resultFormula">Enter values to see conversion formula</div>
+            <button class="copy-btn" id="copyBtn">
+                <i class="far fa-copy"></i>
+                <span>Copy Result</span>
+            </button>
+        </div>
+
+        <div class="history-section">
+            <div class="history-title">
+                <i class="fas fa-history"></i>
+                <span>Conversion History</span>
+            </div>
+            <div class="history-list" id="historyList">
+                <!-- History items will be added here -->
+            </div>
+            <button class="clear-history" id="clearHistory">Clear History</button>
+        </div>
+
+        <footer>
+            <p>© 2023 Omni Converter by <span class="rgb-text">Md. Akash</span>. All rights reserved.</p>
+            <div class="footer-links">
+                <button id="homeBtn"><i class="fas fa-home"></i> Home</button>
+                <button id="aboutBtn"><i class="fas fa-info-circle"></i> About</button>
+                <button id="connectBtn"><i class="fas fa-users"></i> Connect</button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Connect Modal -->
+    <div class="modal-overlay" id="connectModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">
+                    <i class="fas fa-users"></i>
+                    Connect With Me
+                </h3>
+                <button class="modal-close" id="closeConnect">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-content">
+                <p class="connect-description">
+                    Find me on these platforms for collaborations, freelancing, or just to connect!
+                </p>
+                
+                <div class="social-grid">
+                    <a href="https://www.facebook.com/mdakashislam1s" target="_blank" class="social-icon">
+                        <img src="https://img.icons8.com/fluent/48/000000/facebook-new.png" alt="Facebook">
+                        <span>Facebook</span>
+                    </a>
+                    <a href="https://wa.me/+8801785422960" target="_blank" class="social-icon">
+                        <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp">
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/marketerakash1/" target="_blank" class="social-icon">
+                        <img src="https://img.icons8.com/fluent/48/000000/linkedin.png" alt="LinkedIn">
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://x.com/MdAkash11822" target="_blank" class="social-icon">
+                        <img src="https://img.icons8.com/color/48/000000/twitter--v1.png" alt="Twitter">
+                        <span>Twitter</span>
+                    </a>
+                    
+                    <a href="https://github.com/mdakashislam1s" target="_blank" class="social-icon">
+                        <img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="GitHub">
+                        <span>GitHub</span>
+                    </a>
+                    
+                    <a href="https://freelancer.com/u/MdAkash182" target="_blank" class="social-icon">
+                        <img src="https://i.imgur.com/4hOgR46.png" alt="Freelancer">
+                        <span>Freelancer</span>
+                    </a>
+                    <a href="https://fiverr.com/akashbd_7" target="_blank" class="social-icon">
+                        <img src="https://img.icons8.com/ios-filled/50/fiverr.png" alt="Fiverr">
+                        <span>Fiverr</span>
+                    </a>
+
+                    <a href="https://www.upwork.com/freelancers/~0130bdeca0fe853e66" target="_blank" class="social-icon">
+                        <img src="https://i.imgur.com/ebF8ahw.png" alt="Upwork">
+                        <span>Upwork</span>
+                    </a>
+
+                    <a href="https://www.seoclerk.com/user/ak71" target="_blank" class="social-icon">
+                        <img src="https://i.imgur.com/iXiIczA.png" alt="SEOClerk">
+                        <span>SEOClerk</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Modal -->
+    <div class="modal-overlay" id="aboutModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">
+                    <i class="fas fa-info-circle"></i>
+                    About Omni Converter
+                </h3>
+                <button class="modal-close" id="closeAbout">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-content">
+                <div class="about-content">
+                    <div class="bengali-content">
+                        <h3>OmniConvert: সরলতা এবং নির্ভুলতার এক অনন্য সংমিশ্রণ</h3>
+                        <p>OmniConvert কোনো সাধারণ ইউনিট কনভার্টার নয়; এটি আধুনিক ডিজাইন এবং উচ্চক্ষমতাসম্পন্ন ইঞ্জিনিয়ারিংয়ের একটি নিখুঁত মেলবন্ধন। দৈনন্দিন জীবনে আমাদের প্রতিনিয়ত বিভিন্ন পরিমাপ পরিবর্তনের প্রয়োজন হয়—কখনো রান্নার রেসিপিতে, কখনো অফিসের কাজে, আবার কখনো পড়াশোনার ক্ষেত্রে। সেই প্রয়োজনকে মাথায় রেখেই আমরা তৈরি করেছি এই Master Unit Converter।</p>
+                        
+                        <h3>কেন OmniConvert ব্যবহার করবেন?</h3>
+                        <ul>
+                            <li><strong>মিনিমালিস্ট গ্লাস-মরফিজম ডিজাইন:</strong> আমরা বিশ্বাস করি "Less is More"। তাই আমরা ব্যবহার করেছি স্বচ্ছ গ্লাস-মরফিজম ইন্টারফেস এবং প্রকৃতির ছোঁয়া মেশানো ব্লার ব্যাকগ্রাউন্ড, যা আপনার চোখের আরাম নিশ্চিত করে।</li>
+                            <li><strong>নির্ভুলতা (Precision Control):</strong> আমাদের সিস্টেমে আপনি দশমিকের পর কত ঘর পর্যন্ত রেজাল্ট দেখতে চান, তা স্লাইডারের মাধ্যমে নিয়ন্ত্রণ করতে পারেন। এটি আপনাকে দেয় শতভাগ নির্ভুল ফলাফল।</li>
+                            <li><strong>স্মার্ট ডিভাইস সিঙ্ক:</strong> আপনার ফোনের বা পিসির সেটিংসের সাথে মিলিয়ে এটি অটোমেটিক ডার্ক বা লাইট মোডে সুইচ করে। ফলে আলাদা করে সেট করার কোনো ঝামেলা নেই।</li>
+                            <li><strong>মাল্টি-ক্যাটাগরি সাপোর্ট:</strong> দৈর্ঘ্য (Length) ও ভর (Mass) থেকে শুরু করে ডিজিটাল ডেটা (Digital Storage) এবং সময় (Time)—সব ধরণের ইউনিট এখন আপনার হাতের মুঠোয়।</li>
+                            <li><strong>দ্রুত এবং নিরাপদ:</strong> কোনো ভারী লাইব্রেরি ছাড়া কেবল ভ্যানিলা জাভাস্ক্রিপ্ট দিয়ে তৈরি হওয়ার কারণে এই সাইটটি চোখের পলকে লোড হয় এবং আপনার কোনো ব্যক্তিগত তথ্য সংগ্রহ করে না।</li>
+                        </ul>
+                        
+                        <h3>আমাদের লক্ষ্য</h3>
+                        <p>আমাদের লক্ষ্য হলো একটি জটিল কাজকে অত্যন্ত সহজ এবং সুন্দরভাবে উপস্থাপন করা। OmniConvert-এর মাধ্যমে আমরা ব্যবহারকারীদের একটি ঝামেলামুক্ত এবং প্রিমিয়াম অভিজ্ঞতা দিতে প্রতিশ্রুতিবদ্ধ।</p>
+                    </div>
+                    
+                    <div class="english-content">
+                        <h3>OmniConvert: A unique combination of simplicity and accuracy</h3>
+                        <p>OmniConvert is not an ordinary unit converter; it is a perfect combination of modern design and high-performance engineering. In our daily life, we constantly need to convert different measurements—sometimes in cooking recipes, sometimes in office work, and sometimes in studies. Keeping that need in mind, we have created this Master Unit Converter.</p>
+                        
+                        <h3>Why use OmniConvert?</h3>
+                        <ul>
+                            <li><strong>Minimalist glass-morphism design:</strong> We believe that "Less is More". That is why we have used a transparent glass-morphism interface and a blur background with a touch of nature, which ensures the comfort of your eyes.</li>
+                            <li><strong>Precision Control:</strong> In our system, you can control how many places after the decimal point you want to see the result, through a slider. This gives you 100% accurate results.</li>
+                            <li><strong>Smart Device Sync:</strong> It automatically switches to dark or light mode according to the settings of your phone or PC. So there is no hassle of setting it separately.</li>
+                            <li><strong>Multi-Category Support:</strong> From Length and Mass to Digital Storage and Time—all types of units are now at your fingertips.</li>
+                            <li><strong>Fast and Secure:</strong> Built with just vanilla JavaScript without any heavy libraries, this site loads in the blink of an eye and does not collect any of your personal information.</li>
+                        </ul>
+                        
+                        <h3>Our Mission</h3>
+                        <p>Our mission is to make a complex task extremely simple and beautiful. With OmniConvert, we are committed to providing our users with a hassle-free and premium experience.</p>
+                    </div>
+                    
+                    <button class="translate-btn" id="translateBtn">
+                        <i class="fas fa-language"></i>
+                        <span>See translation</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
